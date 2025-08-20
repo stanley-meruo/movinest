@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+
+@theme {
+   --breakpoint-xxs: 20rem;
+   --breakpoint-xs: 25rem;
+   --breakpoint-xmd: 54.75rem;
+   --breakpoint-xxl: 93.75rem;
+   
+
+   /* --color-darkPurple: #59168b; */
+   
+}
+
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}

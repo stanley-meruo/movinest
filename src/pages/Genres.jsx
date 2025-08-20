@@ -1,0 +1,14 @@
+import GenrePage from "../components/GenreComponents/GenrePage";
+import SearchBar from "../components/SearchBar";
+
+const Genres = () => {
+  return (
+    <>
+      <main className="min-h-screen bg-neutral-800 pt-20">
+        <SearchBar />
+        <GenrePage />
+      </main>
+    </>
+  );
+};
+export default Genres;
