@@ -6,7 +6,7 @@ import Trending from "./pages/Trending";
 import Search from "./pages/Search";
 import Details from "./pages/Details";
 import Movies from "./pages/Movies";
-import TVSeries from "./pages/TVSeries";
+import TvSeries from "./pages/TvSeries";
 import Genres from "./pages/Genres";
 import GenresList from "./pages/GenresList";
 import Anime from "./pages/Anime";
@@ -35,7 +35,7 @@ function App() {
         <Route path="/trending/tv/:id" element={<Details />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/movie/:id" element={<Details />} />
-        <Route path="/tv-series" element={<TVSeries />} />
+        <Route path="/tv-series" element={<TvSeries />} />
         <Route path="/tv-series/tv/:id" element={<Details />} />
         <Route path="/genre" element={<Genres />} />
         <Route path="/genre/:type/:genreId" element={<GenresList />} />
