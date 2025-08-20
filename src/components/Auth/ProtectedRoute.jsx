@@ -17,6 +17,7 @@ const ProtectedRoute = ({ children }) => {
   if (!user) return <Navigate to="/" />; // redirect to home
 
   return children;
+  
 };
 
 export default ProtectedRoute;
