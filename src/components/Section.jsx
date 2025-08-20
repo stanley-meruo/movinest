@@ -2,8 +2,6 @@ import { MdOutlineArrowForwardIos, MdStar } from "react-icons/md";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import { IoPlayForwardSharp } from "react-icons/io5";
-import BookmarkButton from "./Auth/BookmarkButton";
-
 
 
 
@@ -75,7 +73,6 @@ const Section = ({ title, items, link = "/", parentPath }) => {
                   </div>
                 </div>
               </Link>
-              <BookmarkButton item={item} />
             </div>
           );
         })}

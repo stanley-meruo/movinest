@@ -1,5 +1,6 @@
 import SearchBar from "../components/SearchBar";
-import TvSeriesPage from "../components/TvSeries/TvSeriesPage";
+import TvSeriesPage from "../components/TvSeriesComponents/TvSeriesPage";
+
 
 
 const TvSeries = () => {
@@ -7,7 +8,7 @@ const TvSeries = () => {
     <>
       <main className="min-h-screen bg-neutral-800 pt-20">
         <SearchBar />
-        <TvSeriesPage />
+        <TvSeriesPage/>
       </main>
     </>
   );
