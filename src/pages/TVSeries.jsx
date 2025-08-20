@@ -1,7 +1,8 @@
 import SearchBar from "../components/SearchBar";
 import TvSeriesPage from "../components/TvSeries/TvSeriesPage";
 
-const TVSeries = () => {
+
+const TvSeries = () => {
   return (
     <>
       <main className="min-h-screen bg-neutral-800 pt-20">
@@ -11,4 +12,4 @@ const TVSeries = () => {
     </>
   );
 };
-export default TVSeries;
+export default TvSeries;
