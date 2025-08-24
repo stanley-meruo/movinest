@@ -126,7 +126,7 @@ const NavBar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:text-sm md:flex md:gap-4 md:items-center xmd:gap-6 lg:gap-8 lg:text-base xl:gap-10">
+          <div className="hidden font-montserrat md:text-sm md:flex md:gap-4 md:items-center xmd:gap-6 lg:gap-8 lg:text-base xl:gap-10">
             {navLinks.map((link) => {
               const isActive = link.match.some((route) => {
                 if (route.startsWith("exact:")) {
@@ -156,7 +156,7 @@ const NavBar = () => {
           </div>
 
           {/* User Avatar, SignUp Modal and HambugerMenu*/}
-          <div className="flex items-center gap-4 sm:gap-8">
+          <div className="flex items-center gap-4 font-montserrat sm:gap-8">
             {user ? (
               <Link to="/user">
                 <div className="size-8 flex items-center justify-center rounded-full border text-lg">
@@ -204,7 +204,7 @@ const NavBar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -50 }}
                 transition={{ duration: 0.3 }}
-                className={`fixed top-14 left-0 right-0 z-40 grid text-center p-6 mt-4 gap-4 transition-colors duration-300 sm:gap-6 md:hidden ${
+                className={`fixed top-14 left-0 right-0 z-40 grid text-center font-montserrat p-6 mt-4 gap-4 transition-colors duration-300 sm:gap-6 md:hidden ${
                   isScrolled ? "bg-white" : "bg-black/70"
                 }`}
               >

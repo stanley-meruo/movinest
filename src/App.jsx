@@ -22,7 +22,15 @@ function App() {
   return (
     <>
       <NavBar />
-      <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            marginTop: "80px", fontFamily: 'Montserrat'
+          },
+        }}
+      />
       <PageLoad />
       {/* Define routes for the application */}
       <Routes>

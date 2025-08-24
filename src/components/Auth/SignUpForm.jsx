@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { RxEyeClosed, RxEyeOpen } from "react-icons/rx";
 import { FcGoogle } from "react-icons/fc";
 import { FaSpinner } from "react-icons/fa6";
+import Button from "../Button";
 
 
 const SignUpForm = ({ onSwitch }) => {
@@ -55,7 +56,7 @@ const SignUpForm = ({ onSwitch }) => {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 font-montserrat">
       <h2 className="text-xl font-bold text-center">Sign Up</h2>
       <form onSubmit={handleEmailSignUp} className="space-y-4">
         <input
@@ -63,7 +64,7 @@ const SignUpForm = ({ onSwitch }) => {
           type="email"
           placeholder="Email"
           required
-          className="w-full rounded-md border px-4 py-2 text-sm lg:text-base"
+          className="w-full rounded-md border px-4 py-2 text-sm outline-none lg:text-base"
         />
         <div className="relative">
           <input
@@ -71,9 +72,9 @@ const SignUpForm = ({ onSwitch }) => {
             name="password"
             placeholder="Password"
             required
-            className="w-full border rounded-md px-4 py-2 text-sm lg:text-base"
+            className="w-full border rounded-md px-4 py-2 text-sm outline-none lg:text-base"
           />
-          <button
+          <Button
             type="button"
             onClick={() => setShowPassword((prev) => !prev)}
             className="absolute right-2 top-3 text-lg text-neutral-600"
@@ -87,7 +88,7 @@ const SignUpForm = ({ onSwitch }) => {
                 <RxEyeOpen />
               </>
             )}
-          </button>
+          </Button>
         </div>
 
         <div className="relative">
@@ -96,9 +97,9 @@ const SignUpForm = ({ onSwitch }) => {
             name="confirmPassword"
             placeholder="Confirm Password"
             required
-            className="w-full border rounded-md px-4 py-2 text-sm lg:text-base"
+            className="w-full border rounded-md px-4 py-2 text-sm outline-none lg:text-base"
           />
-          <button
+          <Button
             type="button"
             onClick={() => setShowConfirm((prev) => !prev)}
             className="absolute right-2 top-3 text-lg text-neutral-600"
@@ -112,36 +113,36 @@ const SignUpForm = ({ onSwitch }) => {
                 <RxEyeOpen />
               </>
             )}
-          </button>
+          </Button>
         </div>
 
         {error && <p className="text-red-600 text-sm">{error}</p>}
-        <button
+        <Button
           type="submit"
-          className="w-full bg-red-600 text-white py-2 rounded-md flex justify-center items-center gap-2 cursor-pointer "
+          className="w-full bg-red-600 text-white py-2 rounded-md flex justify-center items-center gap-2 cursor-pointer font-medium "
           disabled={loading}
         >
           {loading && <FaSpinner className="animate-spin" />}
           {loading ? "Signing Up..." : "Sign Up"}
-        </button>
+        </Button>
       </form>
 
-      <button
+      <Button
         onClick={handleGoogleSignUp}
-        className="w-full border py-2 rounded-md flex items-center justify-center gap-2 cursor-pointer"
+        className="w-full border py-2 rounded-md flex items-center justify-center gap-2 cursor-pointer font-medium"
       >
         <FcGoogle className="size-6" />
         Sign up with Google
-      </button>
+      </Button>
 
       <p className="text-sm text-neutral-600 text-center">
         Already have an account?{" "}
-        <button
-          className="text-red-600 font-medium cursor-pointer"
+        <Button
+          className="text-red-600 font-medium cursor-pointer underline underline-offset-2"
           onClick={onSwitch}
         >
           Sign In
-        </button>
+        </Button>
       </p>
     </div>
   );

@@ -20,7 +20,7 @@ const Footer = () => {
               </h1>
             </div>
           </Link>
-          <div className="flex justify-between xmd:gap-12 lg:gap-20 xl:gap-28">
+          <div className="flex justify-between font-montserrat xmd:gap-12 lg:gap-20 xl:gap-28">
             <div className="font-semibold">
               <h2 className="text-base mb-4 xmd:text-lg">LINKS</h2>
               <div className="grid gap-2 text-sm xmd:text-base">
@@ -57,7 +57,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="space-y-6 sm:space-y-10 xmd:space-y-12 xmd:w-2/6">
+          <div className="space-y-6 font-montserrat sm:space-y-10 xmd:space-y-12 xmd:w-2/6">
             <div className="flex items-cemter justify-center gap-8 text-[28px]  xmd:mt-2 xmd:text-3xl xl:gap-12">
               <FaFacebook />
               <FaTelegram />
@@ -79,7 +79,7 @@ const Footer = () => {
           </div>
         </section>
         <div className="h-[0.5px] bg-neutral-500"></div>
-        <p className="text-xs text-neutral-500 py-5 text-center">
+        <p className="text-xs text-neutral-500 py-5 text-center font-montserrat">
           &copy;2025 MoviNest. All Rights Reserved
         </p>
       </footer>

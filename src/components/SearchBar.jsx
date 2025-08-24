@@ -20,11 +20,11 @@ const SearchBar = () => {
           value={query}
           placeholder="Search movies, series, actor..."
           onChange={(e) => setQuery(e.target.value)}
-          className="pl-8 py-3 w-full bg-white text-black text-sm rounded-l-md border-none outline-none sm:text-base md:pl-11  xl:text-lg xl:pl-12"
+          className="pl-8 py-3 w-full bg-white text-black text-sm font-montserrat rounded-l-md border-none outline-none sm:text-base md:pl-12 xl:text-lg xl:pl-14"
         />
         <button
           type="submit"
-          className="bg-red-600 text-white font-semibold text-sm px-4 py-2 rounded-r-md hover:cursor-pointer sm:text-base md:w-1/4 xl:w-2/6 lg:text-lg"
+          className="bg-red-600 text-white font-semibold font-montserrat text-sm px-4 py-2 rounded-r-md hover:cursor-pointer sm:text-base md:w-1/4 xl:w-2/6 lg:text-lg"
         >
           Search
         </button>

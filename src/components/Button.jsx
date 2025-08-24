@@ -1,10 +1,10 @@
 
+const Button = ({ title, className, onClick, disabled, children }) => {
+  return (
+    <button className={className} onClick={onClick} disabled={disabled}>
+      {children ? children : title}
+    </button>
+  );
+};
 
-const Button = ({title, className, onClick}) => {
-    return (
-       <button className={className} onClick={onClick}>
-           {title} 
-       </button>
-    )
-}
-export default Button
+export default Button;

@@ -37,7 +37,7 @@ const AnimePage = () => {
     <section className="bg-neutral-800 py-12 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 lg:py-16 xl:px-20 xxl:py-20 xxl:px-28">
       <div>
         <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
-          <h2 className="text-xl font-bold uppercase md:text-2xl xl:text-3xl">
+          <h2 className="text-xl font-bold font-montserrat uppercase md:text-2xl xl:text-3xl">
             Anime (TV & Movies)
           </h2>
         </div>

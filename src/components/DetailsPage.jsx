@@ -129,10 +129,8 @@ const DetailsPage = () => {
   const imageUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
 
   return (
-    <section className="text-white pt-24">
-      <div
-        className="relative  px-5 py-6 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28"
-      >
+    <section className="text-white pt-24 font-montserrat">
+      <div className="relative px-5 py-6 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
         <div
           className="absolute inset-0 bg-cover bg-center blur-sm bg-gradient-to-t from-transparent via-black to-transparent opacity-50"
           style={{ backgroundImage: `url(${imageUrl})` }}
@@ -145,14 +143,14 @@ const DetailsPage = () => {
               className="w-full rounded-md shadow object-cover"
             />
           </div>
-          <div className="space-y-3 w-full">
-            <h1 className="text-3xl font-bold xmd:text-4xl lg:text-[44px] xl:text-5xl">
+          <div className="space-y-3 w-full sm:mt-1">
+            <h1 className="text-3xl font-bebas tracking-wider font-bold xmd:text-4xl lg:text-[44px] xl:text-5xl">
               {data.title || data.name}
             </h1>
 
             {data.tagline && (
               <p className="text-sm text-neutral-300 italic lg:text-base">
-                {data.tagline}
+                "{data.tagline}"
               </p>
             )}
 
@@ -227,7 +225,7 @@ const DetailsPage = () => {
       </div>
 
       <div className="px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
-      {/* Trailer */}
+        {/* Trailer */}
         <div className="space-y-4 my-8 sm:my-10 md:my-12">
           <h2 className="text-xl font-semibold mb-2 sm:text-2xl md:mb-4 xmd:text-[28px] xl:text-[32px]">
             Watch Trailer
@@ -289,7 +287,6 @@ const DetailsPage = () => {
       </div>
 
       <div className="bg-neutral-900 pb-24 pt-8 mt-14 space-y-14 px-5 xs:px-6 sm:px-8 md:px-10 md:mt-16 md:pt-10 lg:px-16 xl:px-20 xxl:px-28">
-
         {/* Recommendation */}
         {data.recommendations && data.recommendations.length > 0 && (
           <div>

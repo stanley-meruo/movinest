@@ -17,7 +17,7 @@ const TvSeriesPage = () => {
   useEffect(() => {
   
     const fetchData = async () => {
-      const delay = new Promise((resolve) => setTimeout(resolve, 5000));
+      const delay = new Promise((resolve) => setTimeout(resolve, 3000));
       const popularSeries = await getPopularTV();
       const airingToday = await getAiringTV();
       const onTheAir = await getOnTheAirTV();
@@ -36,7 +36,7 @@ const TvSeriesPage = () => {
       return (
         <div className="flex justify-center items-center gap-4 h-screen bg-neutral-800">
           <FaSpinner className="size-8 animate-spin text-red-600 sm:size-10 lg:size-12" />
-          <p className="font-semibold text-gray-400 sm:text-lg lg:text-xl">
+          <p className="font-semibold font-montserrat text-neutral-500 sm:text-lg lg:text-xl">
             Loading content...
           </p>
         </div>
@@ -49,7 +49,7 @@ const TvSeriesPage = () => {
       <div className="space-y-5 md:space-y-8 xmd:space-y-16">
         <div className="">
           <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
-            <h2 className="text-xl font-bold uppercase md:text-2xl xl:text-3xl">
+            <h2 className="text-xl font-bold font-montserrat uppercase md:text-2xl xl:text-3xl">
               Popular Series
             </h2>
           </div>
@@ -66,7 +66,7 @@ const TvSeriesPage = () => {
 
         <div className="">
           <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
-            <h2 className="text-xl font-bold uppercase md:text-2xl xl:text-3xl">
+            <h2 className="text-xl font-bold font-montserrat uppercase md:text-2xl xl:text-3xl">
               Airing Today
             </h2>
           </div>

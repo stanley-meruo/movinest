@@ -13,7 +13,9 @@ const GenrePage = () => {
 
   useEffect(() => {
     const fetchGenres = async () => {
+      const delay = new Promise((resolve) => setTimeout(resolve, 5000));
       const { movieGenres, tvGenres } = await getAllGenres();
+      delay;
       setMovieGenres(movieGenres);
       setTvGenres(tvGenres);
       setLoading(false);
@@ -43,7 +45,7 @@ const GenrePage = () => {
       return (
         <div className="flex justify-center items-center gap-4 h-screen bg-neutral-800">
           <FaSpinner className="size-8 animate-spin text-red-600 sm:size-10 lg:size-12" />
-          <p className="font-semibold text-gray-400 sm:text-lg lg:text-xl">
+          <p className="font-semibold font-montserrat text-neutral-500 sm:text-lg lg:text-xl">
             Loading content...
           </p>
         </div>
@@ -52,7 +54,8 @@ const GenrePage = () => {
 
   return (
     <section className="bg-neutral-800 py-12 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 lg:py-16 xl:px-20 xxl:py-20 xxl:px-28">
-      <div className="space-y-16">
+      {/* Genre Movie */}
+      <div className="space-y-16 font-montserrat">
         <div>
           <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
             <h2 className="text-xl font-bold uppercase md:text-2xl xl:text-3xl">
@@ -88,6 +91,7 @@ const GenrePage = () => {
           </div>
         </div>
 
+        {/* Genre TV Series*/}
         <div>
           <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
             <h2 className="text-xl font-bold uppercase md:text-2xl xl:text-3xl">

@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { RxEyeClosed, RxEyeOpen } from "react-icons/rx";
 import { FcGoogle } from "react-icons/fc";
 import { FaSpinner } from "react-icons/fa6";
+import Button from "../Button";
 
 
 const SignInForm = ({ onSwitch, onClose, prefillEmail ="" }) => {
@@ -60,7 +61,7 @@ const SignInForm = ({ onSwitch, onClose, prefillEmail ="" }) => {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 font-montserrat">
       <h2 className="text-xl font-bold text-center">Sign In</h2>
       <form onSubmit={handleEmailSignIn} className="space-y-4">
         <input
@@ -69,7 +70,7 @@ const SignInForm = ({ onSwitch, onClose, prefillEmail ="" }) => {
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full rounded-md border px-4 py-2 text-sm lg:text-base"
+          className="w-full rounded-md border px-4 py-2 text-sm outline-none lg:text-base"
         />
         <div className="relative">
           <input
@@ -77,9 +78,9 @@ const SignInForm = ({ onSwitch, onClose, prefillEmail ="" }) => {
             name="password"
             placeholder="Password"
             required
-            className="w-full border rounded px-4 py-2 pr-10 text-sm lg:text-base"
+            className="w-full border rounded px-4 py-2 pr-10 text-sm outline-none lg:text-base"
           />
-          <button
+          <Button
             type="button"
             onClick={() => setShowPassword((prev) => !prev)}
             className="absolute right-2 top-3 text-lg text-gray-500"
@@ -93,35 +94,35 @@ const SignInForm = ({ onSwitch, onClose, prefillEmail ="" }) => {
                 <RxEyeOpen />
               </>
             )}
-          </button>
+          </Button>
         </div>
         {error && <p className="text-red-600 text-sm">{error}</p>}
-        <button
+        <Button
           type="submit"
-          className="w-full bg-red-600 text-white py-2 rounded-md flex justify-center items-center gap-2 cursor-pointer "
+          className="w-full bg-red-600 text-white py-2 rounded-md flex justify-center items-center gap-2 cursor-pointer font-medium"
           disabled={loading}
         >
           {loading && <FaSpinner className="animate-spin" />}
           {loading ? "Signing In..." : "Sign In"}
-        </button>
+        </Button>
       </form>
 
-      <button
+      <Button
         onClick={handleGoogleSignIn}
-        className="w-full border py-2 rounded-md flex items-center justify-center gap-2 cursor-pointer"
+        className="w-full border py-2 rounded-md flex items-center justify-center gap-2 cursor-pointer font-medium"
       >
         <FcGoogle className="size-6" />
         Sign in with Google
-      </button>
+      </Button>
 
       <p className="text-sm text-center">
         Don’t have an account?{" "}
-        <button
-          className="text-red-600 font-medium cursor-pointer"
+        <Button
+          className="text-red-600 font-medium cursor-pointer underline underline-offset-2"
           onClick={onSwitch}
         >
           Sign Up
-        </button>
+        </Button>
       </p>
     </div>
   );

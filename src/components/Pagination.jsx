@@ -2,6 +2,7 @@ import {
   MdOutlineArrowBackIosNew,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
+import Button from "./Button";
 
 const Pagination = ({ page, totalPages, setPage }) => {
   const handlePrev = () => {
@@ -24,15 +25,15 @@ const Pagination = ({ page, totalPages, setPage }) => {
     }, []);
 
   return (
-    <div className="flex justify-center text-white items-center flex-wrap gap-2 my-10 text-sm md:text-base">
+    <div className="flex justify-center text-white font-montserrat items-center flex-wrap gap-2 my-10 text-sm md:text-base">
       {/* Prev button */}
-      <button
+      <Button
         onClick={handlePrev}
         disabled={page === 1}
-        className="px-3 py-2.5 rounded bg-neutral-500 disabled:opacity-50"
+        className="px-3 py-2.5 rounded bg-neutral-500 disabled:opacity-50 hover:bg-neutral-700 transition duration-300 cursor-pointer"
       >
         <MdOutlineArrowBackIosNew className="lg:text-lg" />
-      </button>
+      </Button>
 
       {/* Page numbers */}
       {pageNumbers.map((p, i) =>
@@ -41,28 +42,28 @@ const Pagination = ({ page, totalPages, setPage }) => {
             ...
           </span>
         ) : (
-          <button
+          <Button
             key={p}
             onClick={() => setPage(p)}
             aria-label={`Go to page ${p}`}
             tabIndex={0}
             className={`px-3 py-1.5 rounded ${
-              p === page ? "bg-red-600 font-bold" : "bg-neutral-500"
-            } hover:bg-red-500 transition`}
+              p === page ? "bg-red-600 font-bold hover:bg-red-700" : "bg-neutral-500 hover:bg-neutral-600"
+            } transition duration-300 cursor-pointer`}
           >
             {p}
-          </button>
+          </Button>
         )
       )}
 
       {/* Next button */}
-      <button
+      <Button
         onClick={handleNext}
         disabled={page === totalPages}
-        className="px-3 py-2.5 rounded bg-neutral-500 disabled:opacity-50"
+        className="px-3 py-2.5 rounded bg-neutral-500 disabled:opacity-50 hover:bg-neutral-600 transition duration-300 cursor-pointer"
       >
         <MdOutlineArrowForwardIos className="lg:text-lg" />
-      </button>
+      </Button>
     </div>
   );
 };

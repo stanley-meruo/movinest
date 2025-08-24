@@ -1,17 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
-
 
 @theme {
    --breakpoint-xxs: 20rem;
    --breakpoint-xs: 25rem;
    --breakpoint-xmd: 54.75rem;
    --breakpoint-xxl: 93.75rem;
-   
 
-   /* --color-darkPurple: #59168b; */
-   
+   --font-montserrat: "Montserrat", sans-serif;
+   --font-bebas: "Bebas Neue", sans-serif;
 }
-
 
 .scrollbar-hide::-webkit-scrollbar {
     display: none;

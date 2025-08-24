@@ -2,18 +2,24 @@ import { MdOutlineArrowForwardIos, MdStar } from "react-icons/md";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import { IoPlayForwardSharp } from "react-icons/io5";
+import BookmarkButton from "./Auth/BookmarkButton";
 
 
-
-const Section = ({ title, items, link = "/", parentPath }) => {
+const Section = ({ title, items, link = "/", parentPath, user }) => {
   return (
     <div>
       <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
-        <h2 className="text-xl font-bold uppercase md:text-2xl xl:text-3xl">
+        <h2 className="text-xl font-bold font-montserrat uppercase md:text-2xl xl:text-3xl">
           {title}
         </h2>
-        <Link to={link} className="flex items-center gap-1">
-          <Button title="View All" className="text-sm md:text-base" />
+        <Link
+          to={link}
+          className="flex items-center gap-1 hover:text-neutral-500"
+        >
+          <Button
+            title="View All"
+            className="text-sm font-montserrat font-medium md:text-base"
+          />
           <MdOutlineArrowForwardIos className="text-xs" />
         </Link>
       </div>
@@ -32,7 +38,7 @@ const Section = ({ title, items, link = "/", parentPath }) => {
                 to={`${parentPath || ""}/${mediaType}/${item.id}`}
                 key={item.id}
               >
-                <div className="overflow-hidden transition duration-300 hover:scale-95 relative min-w-[150px] text-white">
+                <div className="overflow-hidden transition duration-300 hover:scale-95 relative min-w-[150px] text-white font-montserrat">
                   <img
                     src={
                       item.poster_path || item.backdrop_path
@@ -45,7 +51,7 @@ const Section = ({ title, items, link = "/", parentPath }) => {
                     className="rounded-md w-full object-cover"
                   />
                   <div className="space-y-1 p-1.5 md:p-2">
-                    <p className="text-sm font-semibold text-center  line-clamp-2 xl:text-base">
+                    <p className="text-sm font-semibold text-center line-clamp-2 xl:text-base">
                       {item.title || item.name}{" "}
                       <span>
                         (
@@ -73,6 +79,15 @@ const Section = ({ title, items, link = "/", parentPath }) => {
                   </div>
                 </div>
               </Link>
+              <BookmarkButton
+                user={user}
+                media={{
+                  id: item.id,
+                  type: mediaType,
+                  title: item.title || item.name,
+                  poster_path: item.poster_path,
+                }}
+              />
             </div>
           );
         })}
