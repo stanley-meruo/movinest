@@ -42,7 +42,7 @@ const HeroSection = ({ parentPath }) => {
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-90" />
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
                 className="absolute grid bottom-10 px-5 xs:px-6 sm:pl-8 md:pl-10 lg:pl-16 xl:pl-20 xxl:pl-28 xs:max-w-xl text-white z-10 md:max-w-2xl xl:max-w-3xl"
@@ -66,7 +66,7 @@ const HeroSection = ({ parentPath }) => {
                 </Link>
               </motion.div>
               <motion.p
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
                 className="grid absolute bottom-10 right-5 p-1.5 bg-transparent backdrop-blur-xs border border-neutral-400 text-white rounded md:p-2 xs:right-6 sm:right-8 md:right-10 lg:right-16 xl:right-20 xxl:right-28 "
