@@ -8,6 +8,7 @@ import { getLatestMovies } from "../../services/tmdb";
 import Button from "../Button";
 import { MdOutlineArrowForwardIos, MdStar } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 
 const HeroSection = ({ parentPath }) => {
   const [movies, setMovies] = useState([]);
@@ -40,7 +41,12 @@ const HeroSection = ({ parentPath }) => {
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-90" />
-              <div className="absolute grid bottom-10 px-5 xs:px-6 sm:pl-8 md:pl-10 lg:pl-16 xl:pl-20 xxl:pl-28 xs:max-w-xl text-white z-10 md:max-w-2xl xl:max-w-3xl">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+                className="absolute grid bottom-10 px-5 xs:px-6 sm:pl-8 md:pl-10 lg:pl-16 xl:pl-20 xxl:pl-28 xs:max-w-xl text-white z-10 md:max-w-2xl xl:max-w-3xl"
+              >
                 <h2 className="text-3xl font-bebas font-bold tracking-wider sm:text-3xl md:text-4xl lg:text-5xl xl:text-[52px]">
                   {movie.title}
                 </h2>
@@ -50,21 +56,26 @@ const HeroSection = ({ parentPath }) => {
                 <Link
                   to={`${parentPath || ""}/${mediaType}/${movie.id}`}
                   key={movie.id}
-                  className="flex items-center gap-1 px-3 py-2 mt-4 bg-red-600 text-white font-semibold rounded-md mr-auto md:mt-8 lg:px-8 lg:py-4"
+                  className="flex items-center gap-1 px-2 py-2.5 mt-4 bg-red-600 text-white font-semibold rounded-md mr-auto md:mt-8 md:p-3 lg:px-6 xl:py-3.5"
                 >
                   <Button
                     title="View Details"
-                    className="text-sm font-montserrat font-semibold md:text-base lg:text-lg"
+                    className="text-xs font-montserrat font-semibold sm:text-sm md:text-base"
                   />
-                  <MdOutlineArrowForwardIos className="mt-0.5 xxs:text-xs" />
+                  <MdOutlineArrowForwardIos className="mt-0.5 text-xs xs:text-sm md:text-base lg:text-lg" />
                 </Link>
-              </div>
-              <p className="grid absolute bottom-10 right-5 p-1.5 bg-transparent backdrop-blur-xs border border-neutral-400 text-white rounded md:p-2 xs:right-6 sm:right-8 md:right-10 lg:right-16 xl:right-20 xxl:right-28 ">
+              </motion.div>
+              <motion.p
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+                className="grid absolute bottom-10 right-5 p-1.5 bg-transparent backdrop-blur-xs border border-neutral-400 text-white rounded md:p-2 xs:right-6 sm:right-8 md:right-10 lg:right-16 xl:right-20 xxl:right-28 "
+              >
                 <MdStar className="text-4xl text-orange-400 mx-auto sm:text-5xl md:text-6xl" />
                 <span className="mx-auto font-montserrat font-semibold sm:text-lg md:text-xl">
                   {movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"}
                 </span>
-              </p>
+              </motion.p>
             </div>
           </SwiperSlide>
         ))}

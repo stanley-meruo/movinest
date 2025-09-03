@@ -3,37 +3,98 @@ import Button from "./Button";
 import { Link } from "react-router-dom";
 import { IoPlayForwardSharp } from "react-icons/io5";
 import BookmarkButton from "./Auth/BookmarkButton";
+import { motion } from "motion/react";
+
+// Variants
+const titleVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const buttonVariants = {
+  hidden: { opacity: 0, x: 20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const lineVariants = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: { duration: 1, ease: "easeOut" }, // comes after title+button
+  },
+};
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.5, // wait for line before cards
+      staggerChildren: 0.20,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
 
 
 const Section = ({ title, items, link = "/", parentPath, user }) => {
   return (
-    <div>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+      className="space-y-2 md:mb-8"
+    >
+      {/* Title + View All*/}
       <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
-        <h2 className="text-xl font-bold font-montserrat uppercase md:text-2xl xl:text-3xl">
-          {title}
-        </h2>
-        <Link
-          to={link}
-          className="flex items-center gap-1 hover:text-neutral-500"
+        <motion.h2
+          className="text-lg font-bold font-montserrat uppercase md:text-xl xl:text-2xl"
+          variants={titleVariants}
         >
-          <Button
-            title="View All"
-            className="text-sm font-montserrat font-medium md:text-base"
-          />
-          <MdOutlineArrowForwardIos className="text-xs" />
-        </Link>
-      </div>
-      <div className="relative md:mb-2 lg:mb-4">
-        <div className="h-0.5 w-full bg-neutral-500 mt-2"></div>
-        <div className="absolute top-0 h-0.5 w-1/5 bg-red-500"></div>
+          {title}
+        </motion.h2>
+        <motion.div variants={buttonVariants}>
+          <Link
+            to={link}
+            className="flex items-center gap-1 hover:text-neutral-500"
+          >
+            <Button
+              title="View All"
+              className="text-sm font-montserrat font-medium md:text-base"
+            />
+            <MdOutlineArrowForwardIos className="text-xs" />
+          </Link>
+        </motion.div>
       </div>
 
-      <div className="flex gap-4 overflow-x-auto py-4 scrollbar-hide xmd:grid xmd:grid-cols-4 xmd:gap-6 lg:grid-cols-5">
+      {/* Line */}
+      <div className="relative md:mb-2 lg:mb-4">
+        <div className="h-0.5 w-full bg-neutral-500 mt-2"></div>
+        <motion.div
+          className="absolute top-0 h-0.5 w-1/5 bg-red-500 origin-left"
+          variants={lineVariants}
+        ></motion.div>
+      </div>
+
+      {/* Section Card */}
+      <motion.div
+        className="flex gap-4 overflow-x-auto py-4 scrollbar-hide xmd:grid xmd:grid-cols-4 xmd:gap-6 lg:grid-cols-5"
+        variants={containerVariants}
+      >
         {items.map((item) => {
           const mediaType = item.media_type || (item.title ? "movie" : "tv");
 
           return (
-            <div key={item.id} className="grid gap-2 relative">
+            <motion.div
+              key={item.id}
+              variants={cardVariants}
+              className="grid gap-2 relative"
+            >
               <Link
                 to={`${parentPath || ""}/${mediaType}/${item.id}`}
                 key={item.id}
@@ -50,7 +111,7 @@ const Section = ({ title, items, link = "/", parentPath, user }) => {
                     alt={item.title || item.name}
                     className="rounded-md w-full object-cover"
                   />
-                  <div className="space-y-1 p-1.5 md:p-2">
+                  <div className="p-1.5 md:p-2">
                     <p className="text-sm font-semibold text-center line-clamp-2 xl:text-base">
                       {item.title || item.name}{" "}
                       <span>
@@ -88,11 +149,11 @@ const Section = ({ title, items, link = "/", parentPath, user }) => {
                   poster_path: item.poster_path,
                 }}
               />
-            </div>
+            </motion.div>
           );
         })}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

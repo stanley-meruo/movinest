@@ -80,8 +80,9 @@ const BookmarkButton = ({ media }) => {
     <Button
       onClick={handleBookmark}
       disabled={loading}
-      className="text-2xl text-white absolute top-2 left-2 cursor-pointer md:text-3xl xmd:text-[32px] xl:text-4xl"
+      className="text-[28px] text-white absolute top-2 left-2 cursor-pointer md:text-[32px] xl:text-4xl"
       title={bookmarked ? "Remove bookmark" : "Add to bookmarks"}
+      aria-label={bookmarked ? "Remove bookmark" : "Add to bookmarks"}
     >
       {bookmarked ? <BsBookmarkHeartFill /> : <BsBookmarkHeart />}
     </Button>

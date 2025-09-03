@@ -11,6 +11,30 @@
    --font-bebas: "Bebas Neue", sans-serif;
 }
 
+/* Toater font family */
+[data-sonner-toaster],
+[data-sonner-toast],
+[data-sonner-toaster] > div {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Target react-hot-toast container */
+#toast-container {
+    margin-top: 60px;
+}
+
+@media (min-width: 640px) {
+    #toast-container {
+        margin-top: 80px;
+    }
+}
+@media (min-width: 1024px) {
+    #toast-container {
+        margin-top: 100px;
+    }
+}
+
+
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }

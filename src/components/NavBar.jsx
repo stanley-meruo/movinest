@@ -179,7 +179,7 @@ const NavBar = () => {
                   setAuthMode("signup");
                 }}
                 title={"Sign Up"}
-                className="bg-red-600 cursor-pointer text-white text-sm font-semibold rounded-md mx-auto px-4 py-1.5 xmd:text-base lg:py-2"
+                className="bg-red-600 cursor-pointer text-white text-xs font-semibold rounded-md mx-auto p-2 sm:text-sm sm:px-3 lg:text-base lg:px-4"
               />
             )}
             <span

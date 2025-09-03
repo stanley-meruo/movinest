@@ -24,10 +24,11 @@ function App() {
       <NavBar />
       <Toaster
         position="top-right"
+        containerClassName="!mt-[60px] sm:!mt-[80px]" // ✅ Tailwind responsive classes
         toastOptions={{
           duration: 3000,
           style: {
-            marginTop: "80px", fontFamily: 'Montserrat'
+            fontFamily: "Montserrat",
           },
         }}
       />
