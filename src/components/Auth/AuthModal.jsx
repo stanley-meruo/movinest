@@ -36,7 +36,7 @@ const AuthModal = ({ isOpen, onClose, defaultMode= "signup" }) => {
             initial={{ y: "-100vh", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "-100vh", opacity: 0 }}
-            transition={{ type: "spring", damping: 20, stiffness: 100 }}
+            transition={{ type: "spring", damping: 20, stiffness: 70 }}
             className="fixed top-1/2 left-1/2 z-50 w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-xl bg-white p-6 shadow-lg"
           >
             {/* Close button */}

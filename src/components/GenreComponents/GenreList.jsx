@@ -67,7 +67,7 @@ const GenresList = ({ user }) => {
       {/* Genre List */}
       <div className="font-montserrat">
         <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
-          <h2 className="text-xl font-bold uppercase md:text-2xl xl:text-3xl">
+          <h2 className="text-lg font-bold font-montserrat uppercase md:text-xl xl:text-2xl">
             {genreName
               ? `${genreName} ${type === "movie" ? "Movies" : "TV Shows"}`
               : "Genre Results"}

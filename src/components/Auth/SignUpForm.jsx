@@ -119,7 +119,7 @@ const SignUpForm = ({ onSwitch }) => {
         {error && <p className="text-red-600 text-sm">{error}</p>}
         <Button
           type="submit"
-          className="w-full bg-red-600 text-white py-2 rounded-md flex justify-center items-center gap-2 cursor-pointer font-medium "
+          className="w-full bg-red-600 text-white py-2 mt-6 rounded-md flex justify-center items-center gap-2 cursor-pointer font-medium "
           disabled={loading}
         >
           {loading && <FaSpinner className="animate-spin" />}

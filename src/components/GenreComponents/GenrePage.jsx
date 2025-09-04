@@ -58,7 +58,7 @@ const GenrePage = () => {
       <div className="space-y-16 font-montserrat">
         <div>
           <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
-            <h2 className="text-xl font-bold uppercase md:text-2xl xl:text-3xl">
+            <h2 className="text-lg font-bold font-montserrat uppercase md:text-xl xl:text-2xl">
               Movie By Genre
             </h2>
           </div>
@@ -94,7 +94,7 @@ const GenrePage = () => {
         {/* Genre TV Series*/}
         <div>
           <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
-            <h2 className="text-xl font-bold uppercase md:text-2xl xl:text-3xl">
+            <h2 className="text-lg font-bold font-montserrat uppercase md:text-xl xl:text-2xl">
               Series By Genre
             </h2>
           </div>

@@ -42,7 +42,7 @@ const HeroSection = ({ parentPath }) => {
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-90" />
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
                 className="absolute grid bottom-10 px-5 xs:px-6 sm:pl-8 md:pl-10 lg:pl-16 xl:pl-20 xxl:pl-28 xs:max-w-xl text-white z-10 md:max-w-2xl xl:max-w-3xl"

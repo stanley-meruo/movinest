@@ -230,11 +230,11 @@ const DetailsPage = () => {
           <h2 className="text-xl font-semibold mb-2 sm:text-2xl md:mb-4 xmd:text-[28px] xl:text-[32px]">
             Watch Trailer
           </h2>
-          <div className=" bg-neutral-900 grid w-full aspect-video rounded-md">
+          <div className=" bg-neutral-900 grid rounded-md">
             {trailer?.key ? (
-              <div className="m-2 sm:m-4 lg:m-6 xl:m-8">
+              <div className="m-auto w-full p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8">
                 <iframe
-                  className="w-full aspect-video rounded-md"
+                  className="aspect-video rounded-md"
                   src={`https://www.youtube.com/embed/${trailer.key}`}
                   frameBorder="0"
                   allow="autoplay; encrypted-media"
