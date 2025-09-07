@@ -103,7 +103,7 @@ const NavBar = () => {
   return (
     <>
       <nav
-        className={`py-5 fixed z-50 top-0 w-full transition-all duration-300 backdrop-blur-xs ${
+        className={`py-3.5 fixed z-50 top-0 w-full transition-all duration-300 backdrop-blur-xs ${
           isScrolled
             ? "bg-white shadow-md text-black"
             : "bg-transparent text-white"
@@ -126,7 +126,7 @@ const NavBar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden font-montserrat md:text-sm md:flex md:gap-4 md:items-center xmd:gap-6 lg:gap-8 lg:text-base xl:gap-10">
+          <div className="hidden font-montserrat md:text-xs md:flex md:gap-4 md:items-center xmd:gap-6 lg:gap-8 xmd:text-sm xl:text-base xl:gap-10">
             {navLinks.map((link) => {
               const isActive = link.match.some((route) => {
                 if (route.startsWith("exact:")) {
@@ -179,7 +179,7 @@ const NavBar = () => {
                   setAuthMode("signup");
                 }}
                 title={"Sign Up"}
-                className="bg-red-600 cursor-pointer text-white text-xs font-semibold rounded-md mx-auto p-2 sm:text-sm sm:px-3 lg:text-base lg:px-4"
+                className="bg-red-600 cursor-pointer text-white text-xs font-semibold rounded-md mx-auto p-2 sm:px-3 xmd:text-sm lg:px-4"
               />
             )}
             <span
