@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllGenres } from "../../../utilities/genreList";
 import { getGenrePosters } from "../../../utilities/getGenrePosters";
-
-import { FaSpinner } from "react-icons/fa6";
+import { FaSpinner } from "react-icons/fa";
 
 
 const GenrePage = () => {
@@ -79,6 +78,7 @@ const GenrePage = () => {
                     <img
                       src={genre.poster}
                       alt={genre.name}
+                      loading="lazy"
                       className="absolute inset-0 size-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   )}
@@ -115,6 +115,7 @@ const GenrePage = () => {
                     <img
                       src={genre.poster}
                       alt={genre.name}
+                      loading="lazy"
                       className="absolute inset-0 size-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   )}

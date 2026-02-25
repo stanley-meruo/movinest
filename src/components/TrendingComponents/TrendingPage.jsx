@@ -4,6 +4,7 @@ import { FaSpinner } from "react-icons/fa6";
 import { getTrendingMovies, getTrendingTV } from "../../services/trendingApi";
 import { Outlet } from "react-router-dom";
 import { motion } from "motion/react";
+import SkeletonLoading from "../SkeletonLoading";
 
 
 const TrendingPage = () => {
@@ -25,14 +26,7 @@ const TrendingPage = () => {
   }, []);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center gap-4 h-screen bg-neutral-800">
-        <FaSpinner className="size-8 animate-spin text-red-600 sm:size-10 lg:size-12" />
-        <p className="font-semibold font-montserrat text-neutral-500 sm:text-lg lg:text-xl">
-          Loading content...
-        </p>
-      </div>
-    );
+    return <SkeletonLoading/>;
   }
 
   // Variants

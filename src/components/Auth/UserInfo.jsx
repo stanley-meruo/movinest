@@ -12,6 +12,33 @@ const SkeletonCard = () => (
   <div className="bg-neutral-700 animate-pulse h-40 rounded-md"></div>
 );
 
+const UserInfoSkeleton = () => (
+  <div className=" grid py-6 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
+    <div className="grid animate-pulse">
+      {/* Avatar */}
+      <div className="bg-neutral-700 size-16 rounded-full mb-4 lg:size-20"/>
+        {/* Name & Email */}
+        <div className="grid gap-3 md:gap-4">
+          <div className="bg-neutral-700 w-2/4 h-6 rounded-md md:h-8"/>
+          <div className="bg-neutral-700 w-2/5 h-5 rounded-md"/>
+          <div className="bg-neutral-700 w-2/6 h-6 rounded-md"/>
+        </div>
+        {/* Bookmarks */}
+        <div className=" mx-auto my-10">
+          <div className="bg-neutral-700 w-2/4 h-6 rounded-md mb-4 mx-auto sm:w-2/5 md:h-8"/>
+          <div className="grid grid-cols-2 gap-4 xs:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="grid space-y-4">
+                <div className="min-w-[130px] h-56 bg-neutral-700 rounded-md sm:min-w-[150px] xmd:min-w-[180px] lg:min-w-[160px]" />
+                <div className="h-5 w-24 bg-neutral-700 rounded-md mx-auto" />
+              </div>
+            ))}
+          </div>
+        </div>
+    </div>
+  </div>
+);
+
 const UserInfo = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -81,6 +108,7 @@ const UserInfo = () => {
 
   // 🗑️ Remove a bookmark
   const handleRemoveBookmark = async (bookmarkId) => {
+    if (!confirm("Remove this bookmark?")) return;
     // show loading toast
     const toastId = toast.loading("Removing bookmark...");
 
@@ -106,28 +134,22 @@ const UserInfo = () => {
   };
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center gap-4 h-screen">
-        <FaSpinner className="size-8 animate-spin text-red-600 sm:size-10 lg:size-12" />
-        <p className="font-semibold text-gray-400 sm:text-lg lg:text-xl">
-          Authenticating User
-        </p>
-      </div>
-    );
+    return <UserInfoSkeleton />;
   }
 
   if (!user) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <p className="text-gray-400">No User Signed In</p>
+        <p className="text-white">No User Signed In</p>
       </div>
     );
   }
 
   return (
-    <section className="text-white py-20 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
+    <section className="text-white py-6 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
       <div className="grid font-montserrat">
-        <div className="size-28 flex items-center justify-center rounded-full bg-neutral-600 text-white text-6xl mb-4">
+        {/* Avatar */}
+        <div className="size-16 flex items-center justify-center rounded-full bg-neutral-700 text-white text-6xl mb-4 lg:size-20">
           {user.user_metadata?.avatar_url ? (
             <img
               src={user.user_metadata.avatar_url || "/no-image.jpg"}
@@ -154,9 +176,10 @@ const UserInfo = () => {
           <p className="text-sm">{user.email}</p>
           <ProviderDisplay provider={user.app_metadata.provider} />
         </div>
-
+        
+        {/* Bookmarks */}
         <div>
-          <h2 className="text-xl font-semibold text-center my-4 md:text-3xl my:mb-6">
+          <h2 className="text-xl font-semibold text-center my-4 md:text-3xl">
             Your Bookmarks
           </h2>
           <div className="grid grid-cols-2 gap-3 xs:grid-cols-3 xs:gap-4 md:grid-cols-4 xmd:grid-cols-4 xmd:gap-6 lg:grid-cols-5">
@@ -165,7 +188,7 @@ const UserInfo = () => {
                 .fill(0)
                 .map((_, i) => <SkeletonCard key={i} />)
             ) : bookmarks.length === 0 ? (
-              <p className="text-neutral-500 col-span-full m-auto">
+              <p className="text-neutral-400 col-span-full m-auto">
                 No bookmarks yet.
               </p>
             ) : (
@@ -196,12 +219,13 @@ const UserInfo = () => {
             )}
           </div>
         </div>
-
+        
+        {/* Sign Out Button */}
         <Button
           onClick={handleSignOut}
           disabled={signingOut}
           title="Sign Out"
-          className="px-4 py-2 mt-10 text-sm font-semibold bg-red-600 hover:bg-red-700 text-white rounded-md transition mx-auto flex items-center justify-center gap-2 disabled:opacity-50 md:px-6 md:py-3 md:text-base"
+          className="px-4 py-2 mt-10 text-sm font-semibold bg-red-600 hover:bg-red-700 text-white rounded-md transition mx-auto gap-2 disabled:opacity-50 md:px-6 md:py-3 md:text-base"
         >
           {signingOut ? (
             <>

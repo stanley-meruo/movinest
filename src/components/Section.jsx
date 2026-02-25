@@ -7,12 +7,12 @@ import { motion } from "motion/react";
 
 // Variants
 const titleVariants = {
-  hidden: { opacity: 0, x: -30 },
+  hidden: { opacity: 0, x: -20 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const buttonVariants = {
-  hidden: { opacity: 0, x: 30 },
+  hidden: { opacity: 0, x: 20 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
@@ -99,7 +99,7 @@ const Section = ({ title, items, link = "/", parentPath, user }) => {
                 to={`${parentPath || ""}/${mediaType}/${item.id}`}
                 key={item.id}
               >
-                <div className="overflow-hidden transition duration-300 hover:scale-95 relative min-w-[150px] text-white font-montserrat">
+                <div className="overflow-hidden transition duration-300 hover:scale-95 relative min-w-[150px] text-white font-montserrat ">
                   <img
                     src={
                       item.poster_path || item.backdrop_path
@@ -111,7 +111,7 @@ const Section = ({ title, items, link = "/", parentPath, user }) => {
                     alt={item.title || item.name}
                     className="rounded-md w-full object-cover"
                   />
-                  <div className="p-1.5 md:p-2">
+                  <div className="px-1.5 pt-1.5 md:px-2">
                     <p className="text-sm font-semibold text-center line-clamp-2 xl:text-base">
                       {item.title || item.name}{" "}
                       <span>

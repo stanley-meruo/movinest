@@ -6,7 +6,7 @@ import {
   getAnime,
 } from "../../services/tmdb";
 import Section from "../Section";
-import { FaSpinner } from "react-icons/fa6";
+import SkeletonLoading from "../SkeletonLoading";
 
 const Home = () => {
   const [trending, setTrending] = useState([]);
@@ -37,19 +37,12 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center gap-4 h-screen bg-neutral-800">
-        <FaSpinner className="size-8 animate-spin text-red-600 sm:size-10 lg:size-12" />
-        <p className="font-semibold font-montserrat text-neutral-500 sm:text-lg lg:text-xl">
-          Loading content...
-        </p>
-      </div>
-    );
+    return <SkeletonLoading />;
   }
 
   return (
     <>
-      <div className="bg-neutral-800 py-12 px-5 space-y-5 xs:px-6 sm:px-8 sm:py-14 md:px-10 md:py-18 lg:px-16 xl:px-20 xxl:px-28 md:space-y-8 xmd:space-y-16">
+      <div className="bg-neutral-800 py-12 px-5 xs:px-6 sm:px-8 md:py-14 md:px-10 lg:px-16 xl:px-20 xxl:px-28 sm:space-y-6 md:space-y-8 xmd:space-y-16">
         <Section
           title="🔥 Trending"
           items={trending}
@@ -63,16 +56,16 @@ const Home = () => {
           parentPath="/movies"
         />
         <Section
-          title="📺 TV Series"
-          items={series}
-          link="/tv-series"
-          parentPath="/tv-series"
-        />
-        <Section
           title="🎌 Anime"
           items={anime}
           link="/anime"
           parentPath="/anime"
+        />
+        <Section
+          title="📺 TV Series"
+          items={series}
+          link="/tv-series"
+          parentPath="/tv-series"
         />
       </div>
     </>

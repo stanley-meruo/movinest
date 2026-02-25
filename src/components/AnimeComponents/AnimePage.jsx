@@ -4,6 +4,7 @@ import Card from "../Card";
 import { FaSpinner } from "react-icons/fa6";
 import Pagination from "../Pagination";
 import { Outlet } from "react-router-dom";
+import SkeletonLoading from "../SkeletonLoading";
 
 
 const AnimePage = () => {
@@ -23,14 +24,7 @@ const AnimePage = () => {
   }, [anime, page]);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center gap-4 h-screen bg-neutral-800">
-        <FaSpinner className="size-8 animate-spin text-red-600 sm:size-10 lg:size-12" />
-        <p className="font-semibold text-gray-400 sm:text-lg lg:text-xl">
-          Loading content...
-        </p>
-      </div>
-    );
+   return <SkeletonLoading/>;
   }
 
   return (

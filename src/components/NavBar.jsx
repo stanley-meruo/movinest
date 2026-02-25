@@ -27,6 +27,11 @@ const NavBar = () => {
       match: ["/movies", "/movies/movie"],
     },
     {
+      name: "Anime",
+      path: "/anime",
+      match: ["/anime", "/anime/movie", "/anime/tv"],
+    },
+    {
       name: "TV Series",
       path: "/tv-series",
       match: ["/tv-series", "/tv-series/tv"],
@@ -35,11 +40,6 @@ const NavBar = () => {
       name: "Genres",
       path: "/genre",
       match: ["/genre", "/genre/movie", "/genre/tv"],
-    },
-    {
-      name: "Anime",
-      path: "/anime",
-      match: ["/anime", "/anime/movie", "/anime/tv"],
     }
   ];
 

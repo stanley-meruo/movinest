@@ -113,23 +113,84 @@ const DetailsPage = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center gap-4 h-screen">
-        <FaSpinner className="size-8 animate-spin text-red-600 sm:size-10 lg:size-12" />
-        <p className="font-semibold text-gray-400 sm:text-lg lg:text-xl">
-          Loading content...
-        </p>
-      </div>
+      <section className="py-24 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28 animate-pulse">
+        {/* Top section */}
+        <div className="grid gap-8 sm:flex sm:gap-10">
+          {/* Poster */}
+          <div className="w-full sm:w-60 lg:w-80 h-[420px] bg-neutral-700 rounded-md" />
+
+          {/* Info */}
+          <div className="flex-1 space-y-4">
+            <div className="h-10 w-2/3 bg-neutral-700 rounded-md" />
+            <div className="h-4 w-1/3 bg-neutral-700 rounded-md" />
+
+            <div className="space-y-2.5">
+              <div className="h-4 w-full bg-neutral-700 rounded" />
+              <div className="h-4 w-full bg-neutral-700 rounded-md" />
+              <div className="h-4 w-full bg-neutral-700 rounded-md" />
+              <div className="h-4 w-5/6 bg-neutral-700 rounded-md" />
+              <div className="h-4 w-4/6 bg-neutral-700 rounded-md" />
+            </div>
+
+            <div className="flex gap-3 items-center">
+              <div className="h-4 w-18 bg-neutral-700 rounded-md" />
+              <div className="h-4 w-30 bg-neutral-700 rounded-md" />
+            </div>
+            <div className="flex gap-3 items-center">
+              <div className="h-4 w-18 bg-neutral-700 rounded-md" />
+              <div className="h-4 w-30 bg-neutral-700 rounded-md" />
+            </div>
+            <div className="flex gap-3 items-center">
+              <div className="h-4 w-18 bg-neutral-700 rounded-md" />
+              <div className="h-4 w-30 bg-neutral-700 rounded-md" />
+            </div>
+          </div>
+        </div>
+
+        {/* Trailer */}
+        <div className="mt-12 space-y-4">
+          <div className="h-6 w-32 bg-neutral-700 rounded-md" />
+          <div className="aspect-video w-full bg-neutral-700 rounded-md" />
+        </div>
+
+        {/* Cast */}
+        <div className="mt-14 space-y-4">
+          <div className="h-6 w-32 bg-neutral-700 rounded" />
+          <div className="flex gap-4 overflow-hidden">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="flex flex-col items-center gap-2">
+                <div className="w-20 h-20 rounded-full bg-neutral-700" />
+                <div className="h-3 w-16 bg-neutral-700 rounded-md" />
+                <div className="h-2 w-12 bg-neutral-700 rounded-md" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Grid sections */}
+        {/* <div className="mt-16 space-y-6">
+          <div className="h-6 w-56 bg-neutral-700 rounded-md" />
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div key={i} className="grid space-y-4">
+                <div className="min-w-[150px] h-56 bg-neutral-700 rounded-md" />
+                <div className="h-4 w-32 bg-neutral-700 rounded-md mx-auto" />
+              </div>
+            ))}
+          </div>
+        </div> */}
+      </section>
     );
   }
 
   if (!data) {
-    return <div className="text-white text-center mt-10">No data found.</div>;
+    return <div className="text-center mt-10">No data found.</div>;
   }
   
   const imageUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
 
   return (
-    <section className="text-white pt-24 font-montserrat">
+    <section className="text-white pt-20 font-montserrat">
       <div className="relative px-5 py-6 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
         <div
           className="absolute inset-0 bg-cover bg-center blur-sm bg-gradient-to-t from-transparent via-black to-transparent opacity-50"
@@ -140,6 +201,7 @@ const DetailsPage = () => {
             <img
               src={data.poster_path ? `${imageUrl}` : "/no-image.jpg"}
               alt={data.title || data.name}
+              loading="lazy"
               className="w-full rounded-md shadow object-cover"
             />
           </div>
@@ -203,7 +265,7 @@ const DetailsPage = () => {
               <span className="lg:text-lg">
                 {data.vote_average?.toFixed(1)} / 10
               </span>
-              <span className="text-gray-400 text-sm lg:text-base">
+              <span className="text-neutral-400 text-sm lg:text-base">
                 ({data.vote_count} votes)
               </span>
             </div>
@@ -230,9 +292,9 @@ const DetailsPage = () => {
           <h2 className="text-xl font-semibold mb-2 sm:text-2xl md:mb-4 xmd:text-[28px] xl:text-[32px]">
             Watch Trailer
           </h2>
-          <div className=" bg-neutral-900 grid rounded-md">
+          <div className=" bg-neutral-900 grid rounded-md py-6">
             {trailer?.key ? (
-              <div className="m-auto w-full p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8">
+              <div className="m-auto w-full px-1 sm:px-2 md:px-3 lg:px-5 xl:px-7">
                 <iframe
                   className="aspect-video rounded-md"
                   src={`https://www.youtube.com/embed/${trailer.key}`}
@@ -250,8 +312,8 @@ const DetailsPage = () => {
           </div>
         </div>
 
+        {/* Cast */}
         <div>
-          {/* Cast */}
           {data.credits && data.credits.length > 0 && (
             <div className="">
               <h2 className="text-xl font-semibold mb-2 sm:text-2xl md:mb-4 lg:text-3xl">
@@ -261,7 +323,7 @@ const DetailsPage = () => {
                 {data.credits.slice(0, 10).map((actor) => (
                   <div
                     key={actor.id}
-                    className="text-center grid min-w-[100px] sm:min-w-[120px] lg:min-w-[150px]"
+                    className="text-center grid min-w-[80px] sm:min-w-[100px] lg:min-w-[120px]"
                   >
                     <img
                       src={
@@ -270,12 +332,12 @@ const DetailsPage = () => {
                           : "/no-image.jpg"
                       }
                       alt={actor.name}
-                      className="size-24 mx-auto rounded-full object-cover mb-1 sm:size-28 lg:size-32"
+                      className="size-18 mx-auto rounded-full object-cover mb-1 sm:size-22 lg:size-24 xl:size-26"
                     />
                     <p className="text-xs font-medium lg:text-sm">
                       {actor.name}
                     </p>
-                    <p className="text-[11px] text-neutral-400 lg:text-xs">
+                    <p className="text-[10px] text-neutral-400 lg:text-xs">
                       {actor.character}
                     </p>
                   </div>

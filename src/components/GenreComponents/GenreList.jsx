@@ -5,6 +5,7 @@ import { MdStar } from "react-icons/md";
 import { useParams, Link, useLocation } from "react-router-dom";
 import Pagination from "../Pagination";
 import BookmarkButton from "../Auth/BookmarkButton";
+import SkeletonLoading from "../SkeletonLoading";
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = import.meta.env.VITE_TMDB_BASE_URL;
@@ -62,6 +63,11 @@ const GenresList = ({ user }) => {
   }, [type, genreId, page]);
 
 
+  if (loading) {
+    return <SkeletonLoading />;
+  }
+
+  
   return (
     <section className="bg-neutral-800 py-12 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 lg:py-16 xl:px-20 xxl:py-20 xxl:px-28">
       {/* Genre List */}

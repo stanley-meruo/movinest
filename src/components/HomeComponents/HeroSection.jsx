@@ -47,7 +47,7 @@ const HeroSection = ({ parentPath }) => {
                 transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
                 className="absolute grid bottom-10 px-5 xs:px-6 sm:pl-8 md:pl-10 lg:pl-16 xl:pl-20 xxl:pl-28 xs:max-w-xl text-white z-10 md:max-w-2xl xl:max-w-3xl"
               >
-                <h2 className="text-3xl font-bebas font-bold tracking-wider sm:text-3xl md:text-4xl lg:text-5xl xl:text-[52px]">
+                <h2 className="text-3xl font-bebas font-bold tracking-wider [text-shadow:_0px_2px_2px_rgb(0_0_0_/_0.8)] shadow-blacksm:text-3xl md:text-4xl lg:text-5xl xl:text-[52px]">
                   {movie.title}
                 </h2>
                 <p className="text-sm mt-2 font-montserrat [text-shadow:_0px_2px_2px_rgb(0_0_0_/_0.8)] shadow-black line-clamp-3 w-62 xs:w-86 md:text-base md:w-[480px] xmd:w-full lg:line-clamp-4 lg:mt-4 xl:text-lg">
