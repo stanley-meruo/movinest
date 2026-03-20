@@ -6,7 +6,7 @@ import { FaFacebook, FaInstagram, FaTelegram, FaXTwitter, FaYoutube } from "reac
 const Footer = () => {
     return (
       <footer className="bg-black text-white">
-        <section className="px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28 grid gap-8 py-8 md:py-10 xmd:flex xmd:justify-between xmd:py-12 lg:py-15">
+        <section className="px-4 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28 grid gap-8 py-8 md:py-10 xmd:flex xmd:justify-between xmd:py-12 lg:py-15">
           <Link to="/">
             <div className="flex items-center justify-center gap-2 xmd:-mt-2 lg:-mt-4">
               <img

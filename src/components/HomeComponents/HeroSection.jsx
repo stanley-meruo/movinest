@@ -45,11 +45,13 @@ const HeroSection = ({ parentPath }) => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-                className="absolute grid bottom-10 px-5 xs:px-6 sm:pl-8 md:pl-10 lg:pl-16 xl:pl-20 xxl:pl-28 xs:max-w-xl text-white z-10 md:max-w-2xl xl:max-w-3xl"
+                className="absolute grid bottom-10 px-4 xs:px-6 sm:pl-8 md:pl-10 lg:pl-16 xl:pl-20 xxl:pl-28 xs:max-w-xl text-white z-10 md:max-w-2xl xl:max-w-3xl"
               >
+                {/* Title */}
                 <h2 className="text-3xl font-bebas font-bold tracking-wider [text-shadow:_0px_2px_2px_rgb(0_0_0_/_0.8)] shadow-blacksm:text-3xl md:text-4xl lg:text-5xl xl:text-[52px]">
                   {movie.title}
                 </h2>
+                {/* Overview */}
                 <p className="text-sm mt-2 font-montserrat [text-shadow:_0px_2px_2px_rgb(0_0_0_/_0.8)] shadow-black line-clamp-3 w-62 xs:w-86 md:text-base md:w-[480px] xmd:w-full lg:line-clamp-4 lg:mt-4 xl:text-lg">
                   {movie.overview}
                 </p>
@@ -69,7 +71,7 @@ const HeroSection = ({ parentPath }) => {
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-                className="grid absolute bottom-10 right-5 p-1.5 bg-transparent backdrop-blur-xs border border-neutral-400 text-white rounded md:p-2 xs:right-6 sm:right-8 md:right-10 lg:right-16 xl:right-20 xxl:right-28 "
+                className="grid absolute bottom-10 right-4 p-1.5 bg-transparent backdrop-blur-xs border border-neutral-400 text-white rounded md:p-2 xs:right-6 sm:right-8 md:right-10 lg:right-16 xl:right-20 xxl:right-28 "
               >
                 <MdStar className="text-4xl text-orange-400 mx-auto sm:text-5xl md:text-6xl" />
                 <span className="mx-auto font-montserrat font-semibold sm:text-lg md:text-xl">

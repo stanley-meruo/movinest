@@ -13,7 +13,7 @@ const SearchBar = () => {
   };
 
   return (
-    <section className="bg-[url(/search-bg.webp)] bg-cover bg-center bg-no-repeat bg-neutral-700 bg-blend-multiply py-16 px-5 xs:px-6 sm:px-8 md:px-10 md:py-24 lg:px-16 xl:px-20 xl:py-28 xxl:px-28">
+    <section className="bg-[url(/search-bg.webp)] bg-cover bg-center bg-no-repeat bg-neutral-700 bg-blend-multiply py-16 px-4 xs:px-6 sm:px-8 md:px-10 md:py-24 lg:px-16 xl:px-20 xl:py-28 xxl:px-28">
       <form onSubmit={handleSubmit} className="flex relative">
         <input
           type="text"

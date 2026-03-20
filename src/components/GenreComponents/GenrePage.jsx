@@ -52,7 +52,8 @@ const GenrePage = () => {
     }
 
   return (
-    <section className="bg-neutral-800 py-12 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 lg:py-16 xl:px-20 xxl:py-20 xxl:px-28">
+    <section className="bg-neutral-800 py-12 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-16 lg:py-16 xl:px-20 xxl:py-20 xxl:px-28">
+      
       {/* Genre Movie */}
       <div className="space-y-16 font-montserrat">
         <div>

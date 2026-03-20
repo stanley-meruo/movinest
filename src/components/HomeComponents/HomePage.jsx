@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-neutral-800 py-12 px-5 xs:px-6 sm:px-8 md:py-14 md:px-10 lg:px-16 xl:px-20 xxl:px-28 sm:space-y-6 md:space-y-8 xmd:space-y-16">
+      <div className="bg-neutral-800 py-12 px-4 space-y-4 xs:px-6 sm:px-8 md:py-14 md:px-10 lg:px-16 xl:px-20 xxl:px-28 sm:space-y-6 md:space-y-8 xmd:space-y-16">
         <Section
           title="🔥 Trending"
           items={trending}

@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
 import { FaSpinner } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { MdEmail } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
+import { MdEmail, MdOutlineArrowForwardIos, MdDelete } from "react-icons/md";
 import Button from "../Button";
 import toast from "react-hot-toast";
 
+// Bookmark skeleton card
 const SkeletonCard = () => (
-  <div className="bg-neutral-700 animate-pulse h-40 rounded-md"></div>
+  <div className="min-w-[140px] animate-pulse">
+    <div className="w-full h-40 bg-neutral-700 rounded-md" />
+    <div className="h-4 bg-neutral-700 rounded mt-2 w-3/4 mx-auto" />
+  </div>
 );
 
+// UserInfo skeleton
 const UserInfoSkeleton = () => (
-  <div className=" grid py-6 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
+  <div className=" grid py-6 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
     <div className="grid animate-pulse">
       {/* Avatar */}
       <div className="bg-neutral-700 size-16 rounded-full mb-4 lg:size-20"/>
@@ -87,7 +91,7 @@ const UserInfo = () => {
     };
     const { icon } = providers[provider] || { icon: null };
     return (
-      <p className="flex items-center justify-center gap-2 bg-neutral-700 max-w-40 rounded-md p-1 ">
+      <p className="mx-auto flex items-center justify-center gap-2 bg-neutral-700 rounded-md px-1.5 py-1 text-[13px] xmd:p-1 xmd:text-sm">
         Signed in with {icon}
       </p>
     );
@@ -146,10 +150,20 @@ const UserInfo = () => {
   }
 
   return (
-    <section className="text-white py-6 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
+    <section className="text-white min-h-screen grid px-4 py-12 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
+      <Link
+        to="/"
+        className="flex items-center gap-1 hover:text-neutral-500 mr-auto mb-8"
+      >
+        <MdOutlineArrowForwardIos className="text-xs rotate-180" />
+        <Button
+          title="Home"
+          className="text-sm font-montserrat font-medium md:text-base"
+        />
+      </Link>
       <div className="grid font-montserrat">
         {/* Avatar */}
-        <div className="size-16 flex items-center justify-center rounded-full bg-neutral-700 text-white text-6xl mb-4 lg:size-20">
+        <div className="mx-auto size-16 flex items-center justify-center rounded-full bg-neutral-700 text-white text-6xl mb-4 lg:size-20">
           {user.user_metadata?.avatar_url ? (
             <img
               src={user.user_metadata.avatar_url || "/no-image.jpg"}
@@ -161,8 +175,8 @@ const UserInfo = () => {
           )}
         </div>
 
-        <div className="grid gap-2 mb-8">
-          <p className="text-2xl font-semibold md:text-3xl">
+        <div className="grid gap-2 mb-8 mx-auto text-center">
+          <p className="text-xl font-semibold md:text-2xl">
             {user.user_metadata?.name ? (
               <span>Hi {user.user_metadata.name}</span>
             ) : (
@@ -176,56 +190,64 @@ const UserInfo = () => {
           <p className="text-sm">{user.email}</p>
           <ProviderDisplay provider={user.app_metadata.provider} />
         </div>
-        
+
         {/* Bookmarks */}
         <div>
-          <h2 className="text-xl font-semibold text-center my-4 md:text-3xl">
+          <h2 className="text-xl font-semibold text-center my-2 md:text-2xl md:my-3 lg:text-[27px] lg:my-4">
             Your Bookmarks
           </h2>
-          <div className="grid grid-cols-2 gap-3 xs:grid-cols-3 xs:gap-4 md:grid-cols-4 xmd:grid-cols-4 xmd:gap-6 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-5 py-2 xs:grid-cols-3 sm:grid-cols-4 md:gap-4 xmd:gap-5 lg:grid-cols-5">
             {bookmarksLoading ? (
               Array(4)
                 .fill(0)
                 .map((_, i) => <SkeletonCard key={i} />)
             ) : bookmarks.length === 0 ? (
-              <p className="text-neutral-400 col-span-full m-auto">
+              <p className="text-neutral-500 col-span-full m-auto">
                 No bookmarks yet.
               </p>
             ) : (
               bookmarks.map((item) => (
                 <div
                   key={item.id}
-                  className="relative p-2 min-w-[150px] bg-neutral-800 rounded-md"
+                  className="relative min-w-[140px] rounded-md"
                 >
                   <img
                     src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
                     alt={item.title}
                     className="rounded-md w-full object-cover"
                   />
-                  <p className="text-sm font-semibold text-center mt-2 line-clamp-2 xl:text-base">
+                  <p className="text-[13px] font-semibold text-center mt-2 line-clamp-2 xl:text-sm">
                     {item.title}
                   </p>
 
                   {/* 🗑️ Remove button */}
-                  <Button
-                    title="Remove bookmark"
-                    onClick={() => handleRemoveBookmark(item.id)}
-                    className="absolute top-4 right-4 bg-red-600 hover:bg-red-700 text-white p-1 rounded-full transition"
-                  >
-                    <MdDelete className="text-xl md:text-3xl xmd:text-[32px] xl:text-4xl" />
-                  </Button>
+                  <div className="absolute top-2 right-2 group xl:top-3 xl:right-3">
+                    <Button
+                      title="Remove bookmark"
+                      aria-label="Remove bookmark"
+                      onClick={() => handleRemoveBookmark(item.id)}
+                      className="bg-red-600 hover:bg-red-700 text-white p-1 rounded-full transition cursor-pointer"
+                    >
+                      <MdDelete className="text-xl lg:text-2xl xl:text-[27px]" />
+                    </Button>
+
+                    {/* Tooltip */}
+                    <span className="absolute right-0 top-10 hidden group-hover:block bg-neutral-700 text-white text-[10px] px-2 py-1 rounded-md whitespace-nowrap lg:text-xs">
+                      Remove bookmark
+                    </span>
+                  </div>
                 </div>
               ))
             )}
           </div>
         </div>
-        
+
         {/* Sign Out Button */}
         <Button
           onClick={handleSignOut}
           disabled={signingOut}
           title="Sign Out"
-          className="px-4 py-2 mt-10 text-sm font-semibold bg-red-600 hover:bg-red-700 text-white rounded-md transition mx-auto gap-2 disabled:opacity-50 md:px-6 md:py-3 md:text-base"
+          className="px-4 py-2 mt-6 text-xs font-semibold bg-red-600 hover:bg-red-700 text-white rounded-md transition mx-auto gap-2 disabled:opacity-50 sm:text-[13px] md:px-6 md:py-2.5 md:text-sm md:mt-10"
         >
           {signingOut ? (
             <>

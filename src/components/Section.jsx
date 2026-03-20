@@ -50,40 +50,42 @@ const Section = ({ title, items, link = "/", parentPath, user }) => {
       variants={containerVariants}
       className="space-y-2 md:mb-8"
     >
-      {/* Title + View All*/}
-      <div className="flex items-center justify-between text-white gap-4 md:mb-2 lg:mb-4">
-        <motion.h2
-          className="text-lg font-bold font-montserrat uppercase md:text-xl xl:text-2xl"
-          variants={titleVariants}
-        >
-          {title}
-        </motion.h2>
-        <motion.div variants={buttonVariants}>
-          <Link
-            to={link}
-            className="flex items-center gap-1 hover:text-neutral-500"
+      <div className="text-white">
+        {/* Title + View All*/}
+        <div className="flex items-center justify-between gap-4 md:mb-2 lg:mb-4">
+          <motion.h2
+            className="text-lg font-bold font-montserrat uppercase md:text-xl xl:text-2xl"
+            variants={titleVariants}
           >
-            <Button
-              title="View All"
-              className="text-sm font-montserrat font-medium md:text-base"
-            />
-            <MdOutlineArrowForwardIos className="text-xs" />
-          </Link>
-        </motion.div>
-      </div>
+            {title}
+          </motion.h2>
+          <motion.div variants={buttonVariants}>
+            <Link
+              to={link}
+              className="flex items-center gap-1 hover:text-neutral-500"
+            >
+              <Button
+                title="View All"
+                className="text-sm font-montserrat font-medium md:text-base"
+              />
+              <MdOutlineArrowForwardIos className="text-xs" />
+            </Link>
+          </motion.div>
+        </div>
 
-      {/* Line */}
-      <div className="relative md:mb-2 lg:mb-4">
-        <div className="h-0.5 w-full bg-neutral-500 mt-2"></div>
-        <motion.div
-          className="absolute top-0 h-0.5 w-1/5 bg-red-500 origin-left"
-          variants={lineVariants}
-        ></motion.div>
+        {/* Line */}
+        <div className="relative md:mb-2 lg:mb-4">
+          <div className="h-0.5 w-full bg-neutral-500 mt-2"></div>
+          <motion.div
+            className="absolute top-0 h-0.5 w-1/5 bg-red-500 origin-left"
+            variants={lineVariants}
+          ></motion.div>
+        </div>
       </div>
 
       {/* Section Card */}
       <motion.div
-        className="flex gap-4 overflow-x-auto py-4 scrollbar-hide xmd:grid xmd:grid-cols-4 xmd:gap-6 lg:grid-cols-5"
+        className="flex gap-3 overflow-x-auto py-4 scrollbar-hide xmd:grid xmd:grid-cols-4 xmd:gap-5 lg:grid-cols-5"
         variants={containerVariants}
       >
         {items.map((item) => {
@@ -99,7 +101,7 @@ const Section = ({ title, items, link = "/", parentPath, user }) => {
                 to={`${parentPath || ""}/${mediaType}/${item.id}`}
                 key={item.id}
               >
-                <div className="overflow-hidden transition duration-300 hover:scale-95 relative min-w-[150px] text-white font-montserrat ">
+                <div className="overflow-hidden transition duration-300 hover:scale-95 relative min-w-[140px] text-white font-montserrat ">
                   <img
                     src={
                       item.poster_path || item.backdrop_path
@@ -111,8 +113,8 @@ const Section = ({ title, items, link = "/", parentPath, user }) => {
                     alt={item.title || item.name}
                     className="rounded-md w-full object-cover"
                   />
-                  <div className="px-1.5 pt-1.5 md:px-2">
-                    <p className="text-sm font-semibold text-center line-clamp-2 xl:text-base">
+                  <div className="space-y-0.5 px-1.5 pt-1.5 md:px-2">
+                    <p className="text-[13px] font-semibold text-center line-clamp-2 xl:text-sm">
                       {item.title || item.name}{" "}
                       <span>
                         (
@@ -123,15 +125,15 @@ const Section = ({ title, items, link = "/", parentPath, user }) => {
                       </span>
                     </p>
                     {item.last_episode_to_air && (
-                      <p className="text-xs text-orange-400 flex gap-1 items-center justify-center xl:text-sm">
+                      <p className="text-[11px] text-orange-400 flex gap-1 items-center justify-center xl:text-xs">
                         <IoPlayForwardSharp />S
                         {item.last_episode_to_air.season_number} E
                         {item.last_episode_to_air.episode_number} (complete)
                       </p>
                     )}
-                    <p className="absolute top-0 right-0 p-1.5 bg-black text-xs rounded-tr-md">
+                    <p className="absolute top-0 right-0 p-1 bg-black rounded-tr-md grid gap-1">
                       <MdStar className="text-lg text-orange-400 xl:text-xl" />
-                      <span className="xl:text-sm">
+                      <span className="mx-auto text-[10px] xmd:text-xs xl:text-sm">
                         {item.vote_average
                           ? item.vote_average.toFixed(1)
                           : "N/A"}

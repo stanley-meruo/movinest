@@ -64,7 +64,8 @@ const TrendingPage = () => {
   };
 
   return (
-    <section className="bg-neutral-800 py-12 px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 lg:py-16 xl:px-20 xxl:py-20 xxl:px-28">
+    <section className="bg-neutral-800 py-12 px-4 xs:px-6 sm:px-8 md:px-10 lg:px-16 lg:py-16 xl:px-20 xxl:py-20 xxl:px-28">
+
       <div className="space-y-5 md:space-y-8 xmd:space-y-16">
         {/* Trending Movies */}
         <motion.div
@@ -72,7 +73,6 @@ const TrendingPage = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
-          className=""
         >
           <div className="text-white">
             {/* Title*/}
@@ -94,7 +94,7 @@ const TrendingPage = () => {
           {/* Cards */}
           <motion.div
             variants={cardVariants}
-            className="flex gap-4 overflow-x-auto py-4 scrollbar-hide xmd:grid xmd:grid-cols-4 xmd:gap-6 lg:grid-cols-5"
+            className="flex gap-3 overflow-x-auto py-4 scrollbar-hide xmd:grid xmd:grid-cols-4 xmd:gap-6 lg:grid-cols-5"
           >
             {trendingMovies.map((item) => (
               <Card key={item.id} item={item} />
@@ -130,7 +130,7 @@ const TrendingPage = () => {
           {/* Cards */}
           <motion.div
             variants={cardVariants}
-            className="flex gap-4 overflow-x-auto py-4 scrollbar-hide xmd:grid xmd:grid-cols-4 xmd:gap-6 lg:grid-cols-5"
+            className="flex gap-3 overflow-x-auto py-4 scrollbar-hide xmd:grid xmd:grid-cols-4 xmd:gap-6 lg:grid-cols-5"
           >
             {trendingTV.map((item) => (
               <Card key={item.id} item={item} />

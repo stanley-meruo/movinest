@@ -109,7 +109,7 @@ const NavBar = () => {
             : "bg-transparent text-white"
         }`}
       >
-        <div className="flex justify-between items-center px-5 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
+        <div className="flex justify-between items-center px-4 xs:px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 xxl:px-28">
           {/* Logo */}
           <Link to="/">
             <div className="flex items-center gap-2">
